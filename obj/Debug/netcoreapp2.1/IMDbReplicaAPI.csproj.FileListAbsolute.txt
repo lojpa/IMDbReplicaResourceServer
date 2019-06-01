@@ -1,0 +1,14 @@
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.csprojAssemblyReference.cache
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.csproj.CoreCompileInputs.cache
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.RazorAssemblyInfo.cache
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.RazorAssemblyInfo.cs
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.AssemblyInfoInputs.cache
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.AssemblyInfo.cs
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.deps.json
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.runtimeconfig.json
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.runtimeconfig.dev.json
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.dll
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.RazorTargetAssemblyInfo.cache
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.pdb
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.dll
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.pdb
