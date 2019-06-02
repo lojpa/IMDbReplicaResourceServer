@@ -45,9 +45,16 @@ namespace IMDbReplicaAPI.Repositories
             return movies;
         }
 
-        public Task RateMovie(int rating, Movie movie)
+        public async Task<Movie> GetMovieById(int id)
         {
-            throw new NotImplementedException();
+            var movie = await _context.Movie.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return movie;
+        }
+
+        public async Task RateMovie(int rating, int movieId)
+        {
+            var movie = await GetMovieById(movieId);
+            movie.Rating = rating;
         }
     }
 }

@@ -20,9 +20,14 @@ namespace IMDbReplicaAPI.Services
             return await _repository.GetAllMovies(numberOfItemsToTake, movieType);
         }
 
-        public async Task RateMovie(int rating, Movie movie)
+        public async Task<Movie> GetMovieById(int id)
         {
-            await _repository.RateMovie(rating, movie);
+            return await _repository.GetMovieById(id);
+        }
+
+        public async Task RateMovie(int rating, int movieId)
+        {
+            await _repository.RateMovie(rating, movieId);
         }
     }
 }

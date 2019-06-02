@@ -9,6 +9,7 @@ namespace IMDbReplicaAPI.Repositories
     public interface IMovieRepository
     {
         Task<IEnumerable<Movie>> GetAllMovies(int numberOfItemsToTake, int movieType);
-        Task RateMovie(int rating, Movie movie);
+        Task<Movie> GetMovieById(int id);
+        Task RateMovie(int rating, int movieId);
     }
 }

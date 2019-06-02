@@ -28,11 +28,11 @@ namespace IMDbReplicaAPI.Controllers
             return Ok(movies);
         }
 
-        [HttpPatch]
+        [HttpPatch("{movieId}")]
         [Authorize]
-        public async Task RateMovie([FromBody]int rating, [FromBody]Movie movie)
+        public int RateMovie([FromBody]int rating, int movieId)
         {
-            await _service.RateMovie(rating, movie);
+            return 1;
         }
     }
 }
