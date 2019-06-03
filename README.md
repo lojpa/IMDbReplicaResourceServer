@@ -1,7 +1,7 @@
 # IMDbReplicaResourceServer
 
 Title
-<IMDb replica resource server - API.>
+IMDb replica resource server - API
 
 URL
 
