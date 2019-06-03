@@ -25,7 +25,8 @@ None
 Success Response:
 
 Code: 200 
-Content: [ List<Movie> ]
+Content: [ {id: 1, title: "Aladin 2019", imageUrl: "../../assets/images/aladin.jpg",description: "It's story about disney aladin.", releaseDate: "2019-05-31", cast: ["Steven Seagal, Jan Claude Van Damme"], movieType: 0},
+{id: 2, title: "Godzilla: King of the Monsters(2019)", imageUrl: "../../assets/images/godzilla.jpg",description: "...", releaseDate: "2019-03-21", cast: ["Steven Seagal, Jan Claude Van Damme"], movieType: 0}]
 
 Method:
 
@@ -44,7 +45,7 @@ rating=[number]
 httpOptions = {
       headers: new HttpHeaders({
         'Content-Type':  'application/json',
-        'Authorization': `Bearer ${this.auth.getToken()
+        'Authorization': 'Bearer some-token'
         }
         
 Success Response:
