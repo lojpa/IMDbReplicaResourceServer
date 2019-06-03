@@ -35,6 +35,8 @@ namespace IMDbReplicaAPI.Models
 
         public MovieType MovieType { get; set; }
 
+        public RatingHistory RatingHistory { get; set; }
+
         [NotMapped]
         public List<string> Cast { get; set; }
     }

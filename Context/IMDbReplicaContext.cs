@@ -17,6 +17,7 @@ namespace IMDbReplicaAPI.Context
         public DbSet<Movie> Movie { get; set; }
         public DbSet<Actor> Actor { get; set; }
         public DbSet<MovieActor> MovieActor { get; set; }
+        public DbSet<RatingHistory> RatingHistory { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -32,6 +33,11 @@ namespace IMDbReplicaAPI.Context
                 .HasOne(ma => ma.Actor)
                 .WithMany(m => m.Movies)
                 .HasForeignKey(ma => ma.ActorId);
+
+            modelBuilder.Entity<RatingHistory>()
+                .HasOne(p => p.Movie)
+                .WithOne(b => b.RatingHistory)
+                .HasForeignKey<RatingHistory>(fk => fk.MovieId);
 
             modelBuilder.Entity<Movie>().HasData(new Movie
             {
@@ -272,7 +278,30 @@ namespace IMDbReplicaAPI.Context
                 new MovieActor { MovieId = 10, ActorId = 4 }, new MovieActor { MovieId = 10, ActorId = 5 }, new MovieActor { MovieId = 10, ActorId = 2 }, new MovieActor { MovieId = 10, ActorId = 1 },
                 new MovieActor { MovieId = 11, ActorId = 4 }, new MovieActor { MovieId = 11, ActorId = 5 }, new MovieActor { MovieId = 11, ActorId = 2 }, new MovieActor { MovieId = 11, ActorId = 3 }
                 );
-
+            modelBuilder.Entity<RatingHistory>().HasData(
+                new RatingHistory { Id = 1, MovieId = 1, TotalVotesRating = 240, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 2, MovieId = 2, TotalVotesRating = 250, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 3, MovieId = 3, TotalVotesRating = 350, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 4, MovieId = 4, TotalVotesRating = 490, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 5, MovieId = 5, TotalVotesRating = 490, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 6, MovieId = 6, TotalVotesRating = 480, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 7, MovieId = 7, TotalVotesRating = 420, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 8, MovieId = 8, TotalVotesRating = 390, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 9, MovieId = 9, TotalVotesRating = 380, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 10, MovieId = 10, TotalVotesRating = 370, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 11, MovieId = 11, TotalVotesRating = 440, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 12, MovieId = 12, TotalVotesRating = 490, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 13, MovieId = 13, TotalVotesRating = 470, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 14, MovieId = 14, TotalVotesRating = 480, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 15, MovieId = 15, TotalVotesRating = 460, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 16, MovieId = 16, TotalVotesRating = 490, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 17, MovieId = 17, TotalVotesRating = 500, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 18, MovieId = 18, TotalVotesRating = 370, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 19, MovieId = 19, TotalVotesRating = 350, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 20, MovieId = 20, TotalVotesRating = 310, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 21, MovieId = 21, TotalVotesRating = 330, TotalNumberOfVotes = 100 },
+                new RatingHistory { Id = 22, MovieId = 22, TotalVotesRating = 290, TotalNumberOfVotes = 100 }
+                );
         }
     }
 }

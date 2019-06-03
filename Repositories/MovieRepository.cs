@@ -22,9 +22,9 @@ namespace IMDbReplicaAPI.Repositories
             List<Movie> movies = new List<Movie>();
             switch (movieType)
             {
-                case 0: movies = await _context.Movie.Where(x => x.MovieType == MovieType.Movie).Include(x => x.Actors).ThenInclude(y => y.Actor).Take(numberOfItemsToTake).ToListAsync();
+                case 0: movies = await _context.Movie.Where(x => x.MovieType == MovieType.Movie).Include(x => x.Actors).ThenInclude(y => y.Actor).OrderByDescending(o => o.Rating).Take(numberOfItemsToTake).ToListAsync();
                     break;
-                case 1: movies = await _context.Movie.Where(x => x.MovieType == MovieType.TvShow).Include(x => x.Actors).ThenInclude(y => y.Actor).Take(numberOfItemsToTake).ToListAsync();
+                case 1: movies = await _context.Movie.Where(x => x.MovieType == MovieType.TvShow).Include(x => x.Actors).ThenInclude(y => y.Actor).OrderByDescending(o => o.Rating).Take(numberOfItemsToTake).ToListAsync();
                     break;
                 default:
                     break;
@@ -53,8 +53,17 @@ namespace IMDbReplicaAPI.Repositories
 
         public async Task RateMovie(int rating, int movieId)
         {
+            var ratingHistory = await _context.RatingHistory.Where(x => x.MovieId == movieId).FirstOrDefaultAsync();
+            ratingHistory.TotalNumberOfVotes++;
+            ratingHistory.TotalVotesRating += rating;
             var movie = await GetMovieById(movieId);
-            movie.Rating = rating;
+            if(movie != null)
+            {
+                movie.Rating = ratingHistory.TotalVotesRating / ratingHistory.TotalNumberOfVotes;
+            }
+            _context.Update(ratingHistory);
+            _context.Update(movie);
+            await _context.SaveChangesAsync();
         }
     }
 }

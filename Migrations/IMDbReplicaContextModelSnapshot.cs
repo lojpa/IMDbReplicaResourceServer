@@ -144,6 +144,51 @@ namespace IMDbReplicaAPI.Migrations
                     );
                 });
 
+            modelBuilder.Entity("IMDbReplicaAPI.Models.RatingHistory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("MovieId");
+
+                    b.Property<int>("TotalNumberOfVotes");
+
+                    b.Property<int>("TotalVotesRating");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("MovieId")
+                        .IsUnique();
+
+                    b.ToTable("RatingHistory");
+
+                    b.HasData(
+                        new { Id = 1, MovieId = 1, TotalNumberOfVotes = 100, TotalVotesRating = 240 },
+                        new { Id = 2, MovieId = 2, TotalNumberOfVotes = 100, TotalVotesRating = 250 },
+                        new { Id = 3, MovieId = 3, TotalNumberOfVotes = 100, TotalVotesRating = 350 },
+                        new { Id = 4, MovieId = 4, TotalNumberOfVotes = 100, TotalVotesRating = 490 },
+                        new { Id = 5, MovieId = 5, TotalNumberOfVotes = 100, TotalVotesRating = 490 },
+                        new { Id = 6, MovieId = 6, TotalNumberOfVotes = 100, TotalVotesRating = 480 },
+                        new { Id = 7, MovieId = 7, TotalNumberOfVotes = 100, TotalVotesRating = 420 },
+                        new { Id = 8, MovieId = 8, TotalNumberOfVotes = 100, TotalVotesRating = 390 },
+                        new { Id = 9, MovieId = 9, TotalNumberOfVotes = 100, TotalVotesRating = 380 },
+                        new { Id = 10, MovieId = 10, TotalNumberOfVotes = 100, TotalVotesRating = 370 },
+                        new { Id = 11, MovieId = 11, TotalNumberOfVotes = 100, TotalVotesRating = 440 },
+                        new { Id = 12, MovieId = 12, TotalNumberOfVotes = 100, TotalVotesRating = 490 },
+                        new { Id = 13, MovieId = 13, TotalNumberOfVotes = 100, TotalVotesRating = 470 },
+                        new { Id = 14, MovieId = 14, TotalNumberOfVotes = 100, TotalVotesRating = 480 },
+                        new { Id = 15, MovieId = 15, TotalNumberOfVotes = 100, TotalVotesRating = 460 },
+                        new { Id = 16, MovieId = 16, TotalNumberOfVotes = 100, TotalVotesRating = 490 },
+                        new { Id = 17, MovieId = 17, TotalNumberOfVotes = 100, TotalVotesRating = 500 },
+                        new { Id = 18, MovieId = 18, TotalNumberOfVotes = 100, TotalVotesRating = 370 },
+                        new { Id = 19, MovieId = 19, TotalNumberOfVotes = 100, TotalVotesRating = 350 },
+                        new { Id = 20, MovieId = 20, TotalNumberOfVotes = 100, TotalVotesRating = 310 },
+                        new { Id = 21, MovieId = 21, TotalNumberOfVotes = 100, TotalVotesRating = 330 },
+                        new { Id = 22, MovieId = 22, TotalNumberOfVotes = 100, TotalVotesRating = 290 }
+                    );
+                });
+
             modelBuilder.Entity("IMDbReplicaAPI.Models.MovieActor", b =>
                 {
                     b.HasOne("IMDbReplicaAPI.Models.Actor", "Actor")
@@ -154,6 +199,14 @@ namespace IMDbReplicaAPI.Migrations
                     b.HasOne("IMDbReplicaAPI.Models.Movie", "Movie")
                         .WithMany("Actors")
                         .HasForeignKey("MovieId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("IMDbReplicaAPI.Models.RatingHistory", b =>
+                {
+                    b.HasOne("IMDbReplicaAPI.Models.Movie", "Movie")
+                        .WithOne("RatingHistory")
+                        .HasForeignKey("IMDbReplicaAPI.Models.RatingHistory", "MovieId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

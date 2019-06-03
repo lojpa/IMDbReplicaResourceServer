@@ -30,9 +30,13 @@ namespace IMDbReplicaAPI.Controllers
 
         [HttpPatch("{movieId}")]
         [Authorize]
-        public int RateMovie([FromBody]int rating, int movieId)
+        public async Task<ActionResult> RateMovie([FromBody]int rating, int movieId)
         {
-            return 1;
+            if (movieId == 0)
+                return BadRequest();
+
+            await _service.RateMovie(rating, movieId);
+            return Ok();
         }
     }
 }

@@ -63,6 +63,27 @@ namespace IMDbReplicaAPI.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "RatingHistory",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                    TotalNumberOfVotes = table.Column<int>(nullable: false),
+                    TotalVotesRating = table.Column<int>(nullable: false),
+                    MovieId = table.Column<int>(nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_RatingHistory", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_RatingHistory_Movie_MovieId",
+                        column: x => x.MovieId,
+                        principalTable: "Movie",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.InsertData(
                 table: "Actor",
                 columns: new[] { "Id", "Name" },
@@ -110,6 +131,9 @@ namespace IMDbReplicaAPI.Migrations
                 values: new object[,]
                 {
                     { 1, 1 },
+                    { 11, 2 },
+                    { 7, 4 },
+                    { 7, 5 },
                     { 7, 3 },
                     { 7, 1 },
                     { 8, 4 },
@@ -117,8 +141,8 @@ namespace IMDbReplicaAPI.Migrations
                     { 8, 2 },
                     { 8, 3 },
                     { 9, 4 },
-                    { 7, 5 },
                     { 9, 5 },
+                    { 9, 3 },
                     { 9, 1 },
                     { 10, 4 },
                     { 10, 5 },
@@ -126,10 +150,10 @@ namespace IMDbReplicaAPI.Migrations
                     { 10, 1 },
                     { 11, 4 },
                     { 11, 5 },
-                    { 9, 3 },
-                    { 7, 4 },
-                    { 6, 3 },
                     { 6, 2 },
+                    { 6, 5 },
+                    { 6, 3 },
+                    { 3, 5 },
                     { 1, 2 },
                     { 1, 3 },
                     { 1, 4 },
@@ -137,30 +161,65 @@ namespace IMDbReplicaAPI.Migrations
                     { 2, 2 },
                     { 2, 5 },
                     { 3, 3 },
-                    { 3, 5 },
+                    { 6, 4 },
                     { 4, 4 },
-                    { 4, 5 },
+                    { 11, 3 },
                     { 4, 2 },
                     { 4, 1 },
                     { 5, 2 },
                     { 5, 5 },
                     { 5, 3 },
-                    { 6, 4 },
-                    { 6, 5 },
-                    { 11, 2 },
-                    { 11, 3 }
+                    { 4, 5 }
+                });
+
+            migrationBuilder.InsertData(
+                table: "RatingHistory",
+                columns: new[] { "Id", "MovieId", "TotalNumberOfVotes", "TotalVotesRating" },
+                values: new object[,]
+                {
+                    { 18, 18, 100, 370 },
+                    { 13, 13, 100, 470 },
+                    { 14, 14, 100, 480 },
+                    { 19, 19, 100, 350 },
+                    { 12, 12, 100, 490 },
+                    { 17, 17, 100, 500 },
+                    { 20, 20, 100, 310 },
+                    { 11, 11, 100, 440 },
+                    { 15, 15, 100, 460 },
+                    { 16, 16, 100, 490 },
+                    { 7, 7, 100, 420 },
+                    { 9, 9, 100, 380 },
+                    { 8, 8, 100, 390 },
+                    { 21, 21, 100, 330 },
+                    { 6, 6, 100, 480 },
+                    { 5, 5, 100, 490 },
+                    { 4, 4, 100, 490 },
+                    { 3, 3, 100, 350 },
+                    { 2, 2, 100, 250 },
+                    { 1, 1, 100, 240 },
+                    { 10, 10, 100, 370 },
+                    { 22, 22, 100, 290 }
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_MovieActor_ActorId",
                 table: "MovieActor",
                 column: "ActorId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_RatingHistory_MovieId",
+                table: "RatingHistory",
+                column: "MovieId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
                 name: "MovieActor");
+
+            migrationBuilder.DropTable(
+                name: "RatingHistory");
 
             migrationBuilder.DropTable(
                 name: "Actor");
