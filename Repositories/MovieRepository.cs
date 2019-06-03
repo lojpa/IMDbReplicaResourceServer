@@ -59,7 +59,7 @@ namespace IMDbReplicaAPI.Repositories
             var movie = await GetMovieById(movieId);
             if(movie != null)
             {
-                movie.Rating = ratingHistory.TotalVotesRating / ratingHistory.TotalNumberOfVotes;
+                movie.Rating = (decimal)ratingHistory.TotalVotesRating / ratingHistory.TotalNumberOfVotes;
             }
             _context.Update(ratingHistory);
             _context.Update(movie);
