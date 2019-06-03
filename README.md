@@ -72,3 +72,4 @@ IMPORTANT:
 3. Wait untill VS load project and get necessary dependencies.
 4. On toolbar select View -> Other windows -> Package manager console
 5. Run command: update-database (in order to create database from already prepared migration)
+6. Run project
