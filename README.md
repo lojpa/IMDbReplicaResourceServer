@@ -5,7 +5,7 @@ IMDb replica resource server - API
 
 URL
 
-https://localhost:44337
+https://localhost:44337/api/movie
 
 Method:
 
