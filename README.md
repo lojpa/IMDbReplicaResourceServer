@@ -13,7 +13,7 @@ GET
 
 URL Params
 
-Optional:
+Required:
 
 numberOfItemsToTake=[number]
 movieType=[0 | 1] - (0 for movie, 1 for tv show)
