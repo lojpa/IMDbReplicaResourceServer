@@ -12,3 +12,4 @@ C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp
 C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.pdb
 C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.dll
 C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\obj\Debug\netcoreapp2.1\IMDbReplicaAPI.pdb
+C:\Users\E5580\source\repos\IMDb-replicaAPI\IMDb-replicaAPI\bin\Debug\netcoreapp2.1\IMDbReplicaAPI.xml
