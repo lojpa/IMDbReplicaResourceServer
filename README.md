@@ -43,11 +43,9 @@ Data Params
 
 rating=[number]
 
-httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type':  'application/json',
-        'Authorization': 'Bearer some-token'
-        }
+
+header:{ 'Content-Type':  'application/json',
+         'Authorization': 'Bearer some-token'}
         
 Success Response:
 
